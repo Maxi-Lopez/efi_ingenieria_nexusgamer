@@ -63,8 +63,9 @@ Se revisó `requisitos.md` y se comparó con el proyecto actual. Los siguientes 
 
 ## Acciones pendientes
 
-1. Fusionar `develope` → `main` (no subir a GitHub si no se solicita).
+1. ~~Fusionar `develope` → `main` (no subir a GitHub si no se solicita).~~ ✅ Completado en rama `main`.
 2. Agregar capturas del proyecto al README.md (si se dispusieran).
+3. ✅ Agregar `imagen_url` a productos en `seed_db.py` y re-sembrar BD (10 productos con imágenes).
 
 ---
 
