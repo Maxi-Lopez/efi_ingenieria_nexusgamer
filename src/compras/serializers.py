@@ -1,9 +1,11 @@
 from rest_framework import serializers
 from .models import Compra, DetalleCompra
 from proveedores.serializers import ProveedorSerializer
+from catalogo.serializers import ProductoListSerializer
 
 
 class DetalleCompraSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = DetalleCompra
         fields = [
@@ -24,10 +26,10 @@ class CompraSerializer(serializers.ModelSerializer):
 
 
 class CompraListSerializer(CompraSerializer):
-    proveedor_detalle = ProveedorSerializer(source='proveedor', read_only=True)
+    proveedor = ProveedorSerializer(read_only=True)
     detalles = DetalleCompraSerializer(many=True, read_only=True)
 
     class Meta(CompraSerializer.Meta):
         fields = CompraSerializer.Meta.fields + [
-            'proveedor_detalle', 'detalles',
+            'detalles',
         ]

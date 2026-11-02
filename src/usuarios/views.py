@@ -106,9 +106,15 @@ class ListaDeseosProductosPostViewSets(viewsets.ModelViewSet):
         )
 
 class ListaDeseosProductosViewSets(viewsets.ReadOnlyModelViewSet):
-    queryset = ListaDeseosProductos.objects.filter(is_active=True).select_related('usuario', 'producto')
     serializer_class = ListaDeseosGetSerializer
     permission_classes = [PermissionCliente]
+
+    def get_queryset(self):
+        # 👇 Filtramos solo los deseos del usuario logueado
+        return ListaDeseosProductos.objects.filter(
+            usuario=self.request.user,
+            is_active=True
+        ).select_related('usuario', 'producto')
 
 
 #RENDERIZADO DE TEMPLETE
