@@ -27,9 +27,7 @@ class UserClienteViewSets(viewsets.ModelViewSet):
         return [permission() for permission in permission_classes]
 
     def perform_create(self, serializer):
-        user = serializer.save()
-        grupo = Group.objects.get(name='Cliente')
-        user.groups.add(grupo)
+        serializer.save()
    
     @action(detail=True, methods=['post'])
     def eliminado_logico(self, request, pk=None):

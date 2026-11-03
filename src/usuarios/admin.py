@@ -1,13 +1,22 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from .models import UsuarioPersonalizado, ListaDeseosProductos
 
 
 @admin.register(UsuarioPersonalizado)
-class UsuarioPersonalizadoAdmin(admin.ModelAdmin):
+class UsuarioPersonalizadoAdmin(UserAdmin):
     list_display = ['id', 'username', 'email', 'first_name', 'last_name', 'telefono', 'dni', 'is_active', 'is_staff', 'is_superuser']
     list_filter = ['is_active', 'is_staff', 'is_superuser', 'groups']
     search_fields = ['username', 'email', 'first_name', 'last_name', 'dni', 'telefono']
     ordering = ['-id']
+    
+    # Añadir telefono y dni al formulario de creación/edición
+    fieldsets = UserAdmin.fieldsets + (
+        ('Información adicional', {'fields': ('telefono', 'dni')}),
+    )
+    add_fieldsets = UserAdmin.add_fieldsets + (
+        ('Información adicional', {'fields': ('telefono', 'dni')}),
+    )
 
 
 @admin.register(ListaDeseosProductos)

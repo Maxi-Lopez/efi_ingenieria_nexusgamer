@@ -51,6 +51,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
         }
 
     def create(self, validated_data):
+        print(f"[DEBUG] Creating user with validated_data: {validated_data}")
         # 1. Limpiamos strings vacíos para que no choquen con las validaciones de la DB
         if validated_data.get('dni') == '':
             validated_data['dni'] = None
@@ -67,10 +68,14 @@ class UsuarioSerializer(serializers.ModelSerializer):
             grupo_cliente, _ = Group.objects.get_or_create(name='Cliente')
             usuario.groups.add(grupo_cliente)
 
+            print(f"[DEBUG] User created successfully: {usuario.username}, groups: {list(usuario.groups.all())}")
             return usuario
         except IntegrityError:
             # Si el username o DNI ya existen, devolvemos un error 400 en vez de un 500
             raise ValidationError({"detail": "El nombre de usuario o el DNI ya están registrados."})
+        except Exception as e:
+            print(f"[ERROR] Failed to create user: {type(e).__name__}: {e}")
+            raise
 
 
 class ListaDeseosPostSerializer(serializers.ModelSerializer):
