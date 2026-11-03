@@ -175,5 +175,7 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://efi-programacion3-lopez-woad.vercel.app",
+    "https://efi-programacion3-lopez-woad.vercel.app",   
+    "https://efi-ingenieria-nexusgamer.onrender.com", 
+    
 ]
