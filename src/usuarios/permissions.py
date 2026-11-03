@@ -1,8 +1,4 @@
 
-#IMPORTANTE EN LA DB TENER TRES GROUPS CARGADOS PARA QUE FUNCIONEN LOS PERMISOS.
-#SE DEBE CARGAR MANUALMENTE ROL DE Cliente Y Vendedor
-
-
 from rest_framework import permissions
 
 class PermissionVendedor(permissions.BasePermission):
@@ -15,5 +11,5 @@ class PermissionCliente(permissions.BasePermission):
             return False
         if request.user.is_superuser:
             return True
-        # Permitir clientes
-        return request.user.groups.filter(name='Cliente').exists()
+        # Permitir clientes Y vendedores (para la wishlist)
+        return request.user.groups.filter(name__in=['Cliente', 'Vendedor']).exists()
