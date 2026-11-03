@@ -169,7 +169,11 @@ ALLOWED_HOSTS = ['*']
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://efi-programacion3.vercel.app",
+    "https://efi-programacion3-lopez-woad.vercel.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://efi-programacion3-lopez-woad.vercel.app",
+]
