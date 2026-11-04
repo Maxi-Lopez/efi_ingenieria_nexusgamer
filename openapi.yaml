@@ -1,0 +1,3879 @@
+openapi: 3.0.3
+info:
+  title: ''
+  version: 0.0.0
+paths:
+  /api/catalogo/categoria/:
+    get:
+      operationId: catalogo_categoria_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCategoriaList'
+          description: ''
+    post:
+      operationId: catalogo_categoria_create
+      tags:
+      - catalogo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+          description: ''
+  /api/catalogo/categoria-get/:
+    get:
+      operationId: catalogo_categoria_get_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCategoriaList'
+          description: ''
+  /api/catalogo/categoria-get/{id}/:
+    get:
+      operationId: catalogo_categoria_get_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this categoria.
+        required: true
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+          description: ''
+  /api/catalogo/categoria/{id}/:
+    get:
+      operationId: catalogo_categoria_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this categoria.
+        required: true
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+          description: ''
+    put:
+      operationId: catalogo_categoria_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this categoria.
+        required: true
+      tags:
+      - catalogo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+          description: ''
+    patch:
+      operationId: catalogo_categoria_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this categoria.
+        required: true
+      tags:
+      - catalogo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCategoria'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCategoria'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCategoria'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+          description: ''
+    delete:
+      operationId: catalogo_categoria_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this categoria.
+        required: true
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/catalogo/categoria/{id}/eliminado_logico/:
+    post:
+      operationId: catalogo_categoria_eliminado_logico_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this categoria.
+        required: true
+      tags:
+      - catalogo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+          description: ''
+  /api/catalogo/marca/:
+    get:
+      operationId: catalogo_marca_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMarcaList'
+          description: ''
+    post:
+      operationId: catalogo_marca_create
+      tags:
+      - catalogo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Marca'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Marca'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Marca'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Marca'
+          description: ''
+  /api/catalogo/marca-get/:
+    get:
+      operationId: catalogo_marca_get_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMarcaList'
+          description: ''
+  /api/catalogo/marca-get/{id}/:
+    get:
+      operationId: catalogo_marca_get_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this marca.
+        required: true
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Marca'
+          description: ''
+  /api/catalogo/marca/{id}/:
+    get:
+      operationId: catalogo_marca_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this marca.
+        required: true
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Marca'
+          description: ''
+    put:
+      operationId: catalogo_marca_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this marca.
+        required: true
+      tags:
+      - catalogo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Marca'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Marca'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Marca'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Marca'
+          description: ''
+    patch:
+      operationId: catalogo_marca_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this marca.
+        required: true
+      tags:
+      - catalogo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMarca'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMarca'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMarca'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Marca'
+          description: ''
+    delete:
+      operationId: catalogo_marca_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this marca.
+        required: true
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/catalogo/marca/{id}/eliminado_logico/:
+    post:
+      operationId: catalogo_marca_eliminado_logico_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this marca.
+        required: true
+      tags:
+      - catalogo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Marca'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Marca'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Marca'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Marca'
+          description: ''
+  /api/catalogo/producto/:
+    get:
+      operationId: catalogo_producto_list
+      parameters:
+      - in: query
+        name: categoria
+        schema:
+          type: integer
+      - in: query
+        name: destacado
+        schema:
+          type: boolean
+      - in: query
+        name: is_active
+        schema:
+          type: boolean
+      - in: query
+        name: marca
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProductoList'
+          description: ''
+    post:
+      operationId: catalogo_producto_create
+      tags:
+      - catalogo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Producto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Producto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Producto'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Producto'
+          description: ''
+  /api/catalogo/producto-get/:
+    get:
+      operationId: catalogo_producto_get_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProductoListList'
+          description: ''
+  /api/catalogo/producto-get/{id}/:
+    get:
+      operationId: catalogo_producto_get_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this producto.
+        required: true
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductoList'
+          description: ''
+  /api/catalogo/producto/{id}/:
+    get:
+      operationId: catalogo_producto_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this producto.
+        required: true
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Producto'
+          description: ''
+    put:
+      operationId: catalogo_producto_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this producto.
+        required: true
+      tags:
+      - catalogo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Producto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Producto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Producto'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Producto'
+          description: ''
+    patch:
+      operationId: catalogo_producto_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this producto.
+        required: true
+      tags:
+      - catalogo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProducto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProducto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProducto'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Producto'
+          description: ''
+    delete:
+      operationId: catalogo_producto_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this producto.
+        required: true
+      tags:
+      - catalogo
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/catalogo/producto/{id}/eliminado_logico/:
+    post:
+      operationId: catalogo_producto_eliminado_logico_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this producto.
+        required: true
+      tags:
+      - catalogo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Producto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Producto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Producto'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Producto'
+          description: ''
+  /api/compras/compra/:
+    get:
+      operationId: compras_compra_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - compras
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCompraList'
+          description: ''
+    post:
+      operationId: compras_compra_create
+      tags:
+      - compras
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Compra'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Compra'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Compra'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compra'
+          description: ''
+  /api/compras/compra-get/:
+    get:
+      operationId: compras_compra_get_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - compras
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCompraList'
+          description: ''
+  /api/compras/compra-get/{id}/:
+    get:
+      operationId: compras_compra_get_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this compra.
+        required: true
+      tags:
+      - compras
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compra'
+          description: ''
+  /api/compras/compra-list/:
+    get:
+      operationId: compras_compra_list_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - compras
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCompraListList'
+          description: ''
+  /api/compras/compra-list/{id}/:
+    get:
+      operationId: compras_compra_list_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this compra.
+        required: true
+      tags:
+      - compras
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompraList'
+          description: ''
+  /api/compras/compra/{id}/:
+    get:
+      operationId: compras_compra_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this compra.
+        required: true
+      tags:
+      - compras
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compra'
+          description: ''
+    put:
+      operationId: compras_compra_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this compra.
+        required: true
+      tags:
+      - compras
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Compra'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Compra'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Compra'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compra'
+          description: ''
+    patch:
+      operationId: compras_compra_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this compra.
+        required: true
+      tags:
+      - compras
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCompra'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCompra'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCompra'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compra'
+          description: ''
+    delete:
+      operationId: compras_compra_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this compra.
+        required: true
+      tags:
+      - compras
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/compras/compra/{id}/eliminado_logico/:
+    post:
+      operationId: compras_compra_eliminado_logico_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this compra.
+        required: true
+      tags:
+      - compras
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Compra'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Compra'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Compra'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compra'
+          description: ''
+  /api/compras/detalle-compra/:
+    get:
+      operationId: compras_detalle_compra_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - compras
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDetalleCompraList'
+          description: ''
+    post:
+      operationId: compras_detalle_compra_create
+      tags:
+      - compras
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetalleCompra'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DetalleCompra'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DetalleCompra'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetalleCompra'
+          description: ''
+  /api/compras/detalle-compra-get/:
+    get:
+      operationId: compras_detalle_compra_get_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - compras
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDetalleCompraList'
+          description: ''
+  /api/compras/detalle-compra-get/{id}/:
+    get:
+      operationId: compras_detalle_compra_get_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this detalle compra.
+        required: true
+      tags:
+      - compras
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetalleCompra'
+          description: ''
+  /api/compras/detalle-compra/{id}/:
+    get:
+      operationId: compras_detalle_compra_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this detalle compra.
+        required: true
+      tags:
+      - compras
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetalleCompra'
+          description: ''
+    put:
+      operationId: compras_detalle_compra_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this detalle compra.
+        required: true
+      tags:
+      - compras
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetalleCompra'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DetalleCompra'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DetalleCompra'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetalleCompra'
+          description: ''
+    patch:
+      operationId: compras_detalle_compra_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this detalle compra.
+        required: true
+      tags:
+      - compras
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedDetalleCompra'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedDetalleCompra'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedDetalleCompra'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetalleCompra'
+          description: ''
+    delete:
+      operationId: compras_detalle_compra_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this detalle compra.
+        required: true
+      tags:
+      - compras
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/compras/detalle-compra/{id}/eliminado_logico/:
+    post:
+      operationId: compras_detalle_compra_eliminado_logico_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this detalle compra.
+        required: true
+      tags:
+      - compras
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetalleCompra'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DetalleCompra'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DetalleCompra'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetalleCompra'
+          description: ''
+  /api/proveedores/proveedor/:
+    get:
+      operationId: proveedores_proveedor_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - proveedores
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProveedorList'
+          description: ''
+    post:
+      operationId: proveedores_proveedor_create
+      tags:
+      - proveedores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Proveedor'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Proveedor'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Proveedor'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Proveedor'
+          description: ''
+  /api/proveedores/proveedor-get/:
+    get:
+      operationId: proveedores_proveedor_get_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - proveedores
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProveedorList'
+          description: ''
+  /api/proveedores/proveedor-get/{id}/:
+    get:
+      operationId: proveedores_proveedor_get_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this proveedor.
+        required: true
+      tags:
+      - proveedores
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Proveedor'
+          description: ''
+  /api/proveedores/proveedor/{id}/:
+    get:
+      operationId: proveedores_proveedor_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this proveedor.
+        required: true
+      tags:
+      - proveedores
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Proveedor'
+          description: ''
+    put:
+      operationId: proveedores_proveedor_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this proveedor.
+        required: true
+      tags:
+      - proveedores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Proveedor'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Proveedor'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Proveedor'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Proveedor'
+          description: ''
+    patch:
+      operationId: proveedores_proveedor_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this proveedor.
+        required: true
+      tags:
+      - proveedores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProveedor'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProveedor'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProveedor'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Proveedor'
+          description: ''
+    delete:
+      operationId: proveedores_proveedor_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this proveedor.
+        required: true
+      tags:
+      - proveedores
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/proveedores/proveedor/{id}/eliminado_logico/:
+    post:
+      operationId: proveedores_proveedor_eliminado_logico_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this proveedor.
+        required: true
+      tags:
+      - proveedores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Proveedor'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Proveedor'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Proveedor'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Proveedor'
+          description: ''
+  /api/schema/:
+    get:
+      operationId: schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - ug
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - schema
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/token/:
+    post:
+      operationId: token_create
+      description: |-
+        Takes a set of user credentials and returns an access and refresh JSON web
+        token pair to prove the authentication of those credentials.
+      tags:
+      - token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MyTokenObtainPair'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MyTokenObtainPair'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MyTokenObtainPair'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyTokenObtainPair'
+          description: ''
+  /api/token/refresh/:
+    post:
+      operationId: token_refresh_create
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      tags:
+      - token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+  /api/usuarios/cliente/:
+    get:
+      operationId: usuarios_cliente_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUsuarioList'
+          description: ''
+    post:
+      operationId: usuarios_cliente_create
+      tags:
+      - usuarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+        required: true
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+          description: ''
+  /api/usuarios/cliente-get/:
+    get:
+      operationId: usuarios_cliente_get_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUsuarioPublicList'
+          description: ''
+  /api/usuarios/cliente-get/{id}/:
+    get:
+      operationId: usuarios_cliente_get_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user.
+        required: true
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsuarioPublic'
+          description: ''
+  /api/usuarios/cliente/{id}/:
+    get:
+      operationId: usuarios_cliente_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user.
+        required: true
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+          description: ''
+    put:
+      operationId: usuarios_cliente_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user.
+        required: true
+      tags:
+      - usuarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+          description: ''
+    patch:
+      operationId: usuarios_cliente_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user.
+        required: true
+      tags:
+      - usuarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUsuario'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUsuario'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUsuario'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+          description: ''
+    delete:
+      operationId: usuarios_cliente_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user.
+        required: true
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/usuarios/cliente/{id}/eliminado_logico/:
+    post:
+      operationId: usuarios_cliente_eliminado_logico_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user.
+        required: true
+      tags:
+      - usuarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+        required: true
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+          description: ''
+  /api/usuarios/lista-deseos/:
+    get:
+      operationId: usuarios_lista_deseos_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedListaDeseosPostList'
+          description: ''
+    post:
+      operationId: usuarios_lista_deseos_create
+      tags:
+      - usuarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListaDeseosPost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ListaDeseosPost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ListaDeseosPost'
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListaDeseosPost'
+          description: ''
+  /api/usuarios/lista-deseos-get/:
+    get:
+      operationId: usuarios_lista_deseos_get_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedListaDeseosGetList'
+          description: ''
+  /api/usuarios/lista-deseos-get/{id}/:
+    get:
+      operationId: usuarios_lista_deseos_get_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListaDeseosGet'
+          description: ''
+  /api/usuarios/lista-deseos/{id}/:
+    get:
+      operationId: usuarios_lista_deseos_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this lista deseos productos.
+        required: true
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListaDeseosPost'
+          description: ''
+    put:
+      operationId: usuarios_lista_deseos_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this lista deseos productos.
+        required: true
+      tags:
+      - usuarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListaDeseosPost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ListaDeseosPost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ListaDeseosPost'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListaDeseosPost'
+          description: ''
+    patch:
+      operationId: usuarios_lista_deseos_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this lista deseos productos.
+        required: true
+      tags:
+      - usuarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedListaDeseosPost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedListaDeseosPost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedListaDeseosPost'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListaDeseosPost'
+          description: ''
+    delete:
+      operationId: usuarios_lista_deseos_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this lista deseos productos.
+        required: true
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/usuarios/lista-deseos/{id}/eliminado_logico/:
+    post:
+      operationId: usuarios_lista_deseos_eliminado_logico_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this lista deseos productos.
+        required: true
+      tags:
+      - usuarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListaDeseosPost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ListaDeseosPost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ListaDeseosPost'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListaDeseosPost'
+          description: ''
+  /api/usuarios/vendedor/:
+    get:
+      operationId: usuarios_vendedor_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUsuarioList'
+          description: ''
+    post:
+      operationId: usuarios_vendedor_create
+      tags:
+      - usuarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+          description: ''
+  /api/usuarios/vendedor-get/:
+    get:
+      operationId: usuarios_vendedor_get_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUsuarioPublicList'
+          description: ''
+  /api/usuarios/vendedor-get/{id}/:
+    get:
+      operationId: usuarios_vendedor_get_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user.
+        required: true
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsuarioPublic'
+          description: ''
+  /api/usuarios/vendedor/{id}/:
+    get:
+      operationId: usuarios_vendedor_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user.
+        required: true
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+          description: ''
+    put:
+      operationId: usuarios_vendedor_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user.
+        required: true
+      tags:
+      - usuarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+          description: ''
+    patch:
+      operationId: usuarios_vendedor_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user.
+        required: true
+      tags:
+      - usuarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUsuario'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUsuario'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUsuario'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+          description: ''
+    delete:
+      operationId: usuarios_vendedor_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user.
+        required: true
+      tags:
+      - usuarios
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/usuarios/vendedor/{id}/eliminado_logico/:
+    post:
+      operationId: usuarios_vendedor_eliminado_logico_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user.
+        required: true
+      tags:
+      - usuarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+          description: ''
+  /api/ventas/detalle-venta/:
+    get:
+      operationId: ventas_detalle_venta_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - ventas
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDetalleVentaList'
+          description: ''
+    post:
+      operationId: ventas_detalle_venta_create
+      tags:
+      - ventas
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetalleVenta'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DetalleVenta'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DetalleVenta'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetalleVenta'
+          description: ''
+  /api/ventas/detalle-venta-get/:
+    get:
+      operationId: ventas_detalle_venta_get_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - ventas
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDetalleVentaList'
+          description: ''
+  /api/ventas/detalle-venta-get/{id}/:
+    get:
+      operationId: ventas_detalle_venta_get_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this detalle venta.
+        required: true
+      tags:
+      - ventas
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetalleVenta'
+          description: ''
+  /api/ventas/detalle-venta/{id}/:
+    get:
+      operationId: ventas_detalle_venta_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this detalle venta.
+        required: true
+      tags:
+      - ventas
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetalleVenta'
+          description: ''
+    put:
+      operationId: ventas_detalle_venta_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this detalle venta.
+        required: true
+      tags:
+      - ventas
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetalleVenta'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DetalleVenta'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DetalleVenta'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetalleVenta'
+          description: ''
+    patch:
+      operationId: ventas_detalle_venta_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this detalle venta.
+        required: true
+      tags:
+      - ventas
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedDetalleVenta'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedDetalleVenta'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedDetalleVenta'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetalleVenta'
+          description: ''
+    delete:
+      operationId: ventas_detalle_venta_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this detalle venta.
+        required: true
+      tags:
+      - ventas
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/ventas/detalle-venta/{id}/eliminado_logico/:
+    post:
+      operationId: ventas_detalle_venta_eliminado_logico_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this detalle venta.
+        required: true
+      tags:
+      - ventas
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetalleVenta'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DetalleVenta'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DetalleVenta'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetalleVenta'
+          description: ''
+  /api/ventas/venta/:
+    get:
+      operationId: ventas_venta_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - ventas
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedVentaList'
+          description: ''
+    post:
+      operationId: ventas_venta_create
+      tags:
+      - ventas
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Venta'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Venta'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Venta'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Venta'
+          description: ''
+  /api/ventas/venta-get/:
+    get:
+      operationId: ventas_venta_get_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - ventas
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedVentaGetList'
+          description: ''
+  /api/ventas/venta-get/{id}/:
+    get:
+      operationId: ventas_venta_get_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this venta.
+        required: true
+      tags:
+      - ventas
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VentaGet'
+          description: ''
+  /api/ventas/venta/{id}/:
+    get:
+      operationId: ventas_venta_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this venta.
+        required: true
+      tags:
+      - ventas
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Venta'
+          description: ''
+    put:
+      operationId: ventas_venta_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this venta.
+        required: true
+      tags:
+      - ventas
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Venta'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Venta'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Venta'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Venta'
+          description: ''
+    patch:
+      operationId: ventas_venta_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this venta.
+        required: true
+      tags:
+      - ventas
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedVenta'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedVenta'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedVenta'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Venta'
+          description: ''
+    delete:
+      operationId: ventas_venta_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this venta.
+        required: true
+      tags:
+      - ventas
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/ventas/venta/{id}/eliminado_logico/:
+    post:
+      operationId: ventas_venta_eliminado_logico_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this venta.
+        required: true
+      tags:
+      - ventas
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Venta'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Venta'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Venta'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Venta'
+          description: ''
+components:
+  schemas:
+    Categoria:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nombre:
+          type: string
+          maxLength: 150
+        descripcion:
+          type: string
+        is_active:
+          type: boolean
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - is_active
+      - nombre
+    Compra:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        proveedor:
+          type: integer
+        total:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+        estado:
+          $ref: '#/components/schemas/EstadoFbdEnum'
+        nro_factura:
+          type: string
+          maxLength: 50
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        is_active:
+          type: boolean
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - is_active
+      - proveedor
+    CompraList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        proveedor:
+          allOf:
+          - $ref: '#/components/schemas/Proveedor'
+          readOnly: true
+        total:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+        estado:
+          $ref: '#/components/schemas/EstadoFbdEnum'
+        nro_factura:
+          type: string
+          maxLength: 50
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        is_active:
+          type: boolean
+          readOnly: true
+        detalles:
+          type: array
+          items:
+            $ref: '#/components/schemas/DetalleCompra'
+          readOnly: true
+      required:
+      - created_at
+      - detalles
+      - id
+      - is_active
+      - proveedor
+    DetalleCompra:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        compra:
+          type: integer
+        producto:
+          type: integer
+        unidades:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        precio:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        is_active:
+          type: boolean
+          readOnly: true
+      required:
+      - compra
+      - created_at
+      - id
+      - is_active
+      - precio
+      - producto
+    DetalleVenta:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        venta:
+          type: integer
+        producto:
+          allOf:
+          - $ref: '#/components/schemas/ProductoList'
+          readOnly: true
+        unidades:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        precio_unitario:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        is_active:
+          type: boolean
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - is_active
+      - precio_unitario
+      - producto
+      - venta
+    Estado9d5Enum:
+      enum:
+      - pendiente
+      - completada
+      - cancelada
+      type: string
+      description: |-
+        * `pendiente` - Pendiente
+        * `completada` - Completada
+        * `cancelada` - Cancelada
+    EstadoFbdEnum:
+      enum:
+      - pendiente
+      - recibida
+      - cancelada
+      type: string
+      description: |-
+        * `pendiente` - Pendiente
+        * `recibida` - Recibida
+        * `cancelada` - Cancelada
+    ListaDeseosGet:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        usuario:
+          allOf:
+          - $ref: '#/components/schemas/UsuarioPublic'
+          readOnly: true
+        producto:
+          allOf:
+          - $ref: '#/components/schemas/ProductoList'
+          readOnly: true
+      required:
+      - id
+      - producto
+      - usuario
+    ListaDeseosPost:
+      type: object
+      properties:
+        producto:
+          type: integer
+          nullable: true
+    Marca:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nombre:
+          type: string
+          maxLength: 150
+        logo:
+          type: string
+          maxLength: 500
+        descripcion:
+          type: string
+        pais_origen:
+          type: string
+          maxLength: 100
+        is_active:
+          type: boolean
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - is_active
+      - nombre
+    MyTokenObtainPair:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+      required:
+      - password
+      - username
+    PaginatedCategoriaList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Categoria'
+    PaginatedCompraList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Compra'
+    PaginatedCompraListList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompraList'
+    PaginatedDetalleCompraList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DetalleCompra'
+    PaginatedDetalleVentaList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DetalleVenta'
+    PaginatedListaDeseosGetList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListaDeseosGet'
+    PaginatedListaDeseosPostList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListaDeseosPost'
+    PaginatedMarcaList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Marca'
+    PaginatedProductoList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Producto'
+    PaginatedProductoListList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductoList'
+    PaginatedProveedorList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Proveedor'
+    PaginatedUsuarioList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Usuario'
+    PaginatedUsuarioPublicList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/UsuarioPublic'
+    PaginatedVentaGetList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/VentaGet'
+    PaginatedVentaList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Venta'
+    PatchedCategoria:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nombre:
+          type: string
+          maxLength: 150
+        descripcion:
+          type: string
+        is_active:
+          type: boolean
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedCompra:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        proveedor:
+          type: integer
+        total:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+        estado:
+          $ref: '#/components/schemas/EstadoFbdEnum'
+        nro_factura:
+          type: string
+          maxLength: 50
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        is_active:
+          type: boolean
+          readOnly: true
+    PatchedDetalleCompra:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        compra:
+          type: integer
+        producto:
+          type: integer
+        unidades:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        precio:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        is_active:
+          type: boolean
+          readOnly: true
+    PatchedDetalleVenta:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        venta:
+          type: integer
+        producto:
+          allOf:
+          - $ref: '#/components/schemas/ProductoList'
+          readOnly: true
+        unidades:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        precio_unitario:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        is_active:
+          type: boolean
+          readOnly: true
+    PatchedListaDeseosPost:
+      type: object
+      properties:
+        producto:
+          type: integer
+          nullable: true
+    PatchedMarca:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nombre:
+          type: string
+          maxLength: 150
+        logo:
+          type: string
+          maxLength: 500
+        descripcion:
+          type: string
+        pais_origen:
+          type: string
+          maxLength: 100
+        is_active:
+          type: boolean
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedProducto:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nombre:
+          type: string
+          maxLength: 200
+        descripcion_corta:
+          type: string
+          maxLength: 500
+        descripcion_larga:
+          type: string
+        sku:
+          type: string
+          maxLength: 100
+        precio_lista:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+        precio_oferta:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          nullable: true
+        imagen_url:
+          type: string
+          maxLength: 500
+        stock_total:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        is_active:
+          type: boolean
+          readOnly: true
+        destacado:
+          type: boolean
+        marca:
+          type: integer
+        categoria:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedProveedor:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nombre:
+          type: string
+          maxLength: 150
+        cuit:
+          type: string
+          nullable: true
+          maxLength: 20
+        email:
+          oneOf:
+          - type: string
+            format: email
+            maxLength: 150
+          - type: string
+            maxLength: 0
+        telefono:
+          type: string
+          maxLength: 50
+        direccion:
+          type: string
+        is_active:
+          type: boolean
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedUsuario:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        first_name:
+          type: string
+          maxLength: 150
+        password:
+          type: string
+          writeOnly: true
+          maxLength: 128
+        telefono:
+          type: string
+          nullable: true
+          maxLength: 20
+        email:
+          title: Email address
+          oneOf:
+          - type: string
+            format: email
+            maxLength: 254
+          - type: string
+            maxLength: 0
+        dni:
+          type: string
+          nullable: true
+    PatchedVenta:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        cliente:
+          type: integer
+        estado:
+          $ref: '#/components/schemas/Estado9d5Enum'
+        nro_factura:
+          type: string
+          maxLength: 50
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        is_active:
+          type: boolean
+          readOnly: true
+    Producto:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nombre:
+          type: string
+          maxLength: 200
+        descripcion_corta:
+          type: string
+          maxLength: 500
+        descripcion_larga:
+          type: string
+        sku:
+          type: string
+          maxLength: 100
+        precio_lista:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+        precio_oferta:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          nullable: true
+        imagen_url:
+          type: string
+          maxLength: 500
+        stock_total:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        is_active:
+          type: boolean
+          readOnly: true
+        destacado:
+          type: boolean
+        marca:
+          type: integer
+        categoria:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - categoria
+      - created_at
+      - id
+      - is_active
+      - marca
+      - nombre
+      - precio_lista
+      - sku
+    ProductoList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nombre:
+          type: string
+          maxLength: 200
+        descripcion_corta:
+          type: string
+          maxLength: 500
+        descripcion_larga:
+          type: string
+        sku:
+          type: string
+          maxLength: 100
+        precio_lista:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+        precio_oferta:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          nullable: true
+        imagen_url:
+          type: string
+          maxLength: 500
+        stock_total:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        is_active:
+          type: boolean
+          readOnly: true
+        destacado:
+          type: boolean
+        marca:
+          allOf:
+          - $ref: '#/components/schemas/Marca'
+          readOnly: true
+        categoria:
+          allOf:
+          - $ref: '#/components/schemas/Categoria'
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - categoria
+      - created_at
+      - id
+      - is_active
+      - marca
+      - nombre
+      - precio_lista
+      - sku
+    Proveedor:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nombre:
+          type: string
+          maxLength: 150
+        cuit:
+          type: string
+          nullable: true
+          maxLength: 20
+        email:
+          oneOf:
+          - type: string
+            format: email
+            maxLength: 150
+          - type: string
+            maxLength: 0
+        telefono:
+          type: string
+          maxLength: 50
+        direccion:
+          type: string
+        is_active:
+          type: boolean
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - is_active
+      - nombre
+    TokenRefresh:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          writeOnly: true
+      required:
+      - access
+      - refresh
+    Usuario:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        first_name:
+          type: string
+          maxLength: 150
+        password:
+          type: string
+          writeOnly: true
+          maxLength: 128
+        telefono:
+          type: string
+          nullable: true
+          maxLength: 20
+        email:
+          title: Email address
+          oneOf:
+          - type: string
+            format: email
+            maxLength: 254
+          - type: string
+            maxLength: 0
+        dni:
+          type: string
+          nullable: true
+      required:
+      - id
+      - password
+      - username
+    UsuarioPublic:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        telefono:
+          type: string
+          nullable: true
+          maxLength: 20
+        dni:
+          type: string
+          nullable: true
+        email:
+          title: Email address
+          oneOf:
+          - type: string
+            format: email
+            maxLength: 254
+          - type: string
+            maxLength: 0
+        groups:
+          type: array
+          items:
+            type: integer
+          description: The groups this user belongs to. A user will get all permissions
+            granted to each of their groups.
+      required:
+      - id
+      - username
+    Venta:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        cliente:
+          type: integer
+        estado:
+          $ref: '#/components/schemas/Estado9d5Enum'
+        nro_factura:
+          type: string
+          maxLength: 50
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        is_active:
+          type: boolean
+          readOnly: true
+      required:
+      - cliente
+      - created_at
+      - id
+      - is_active
+    VentaGet:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        cliente:
+          allOf:
+          - $ref: '#/components/schemas/UsuarioPublic'
+          readOnly: true
+        estado:
+          $ref: '#/components/schemas/Estado9d5Enum'
+        nro_factura:
+          type: string
+          maxLength: 50
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        is_active:
+          type: boolean
+          readOnly: true
+        total:
+          type: string
+          readOnly: true
+      required:
+      - cliente
+      - created_at
+      - id
+      - is_active
+      - total
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

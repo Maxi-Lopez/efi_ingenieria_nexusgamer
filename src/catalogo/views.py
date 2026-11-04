@@ -103,3 +103,6 @@ class ProductoGetViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Producto.objects.filter(is_active=True).select_related('marca', 'categoria').order_by('-created_at')
     serializer_class = ProductoListSerializer
     permission_classes = [AllowAny]
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    search_fields = ['nombre', 'sku', 'descripcion_corta']
+    filterset_fields = ['marca', 'categoria', 'destacado']
